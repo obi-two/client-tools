@@ -29,7 +29,7 @@ namespace
 	float   m_cycleTime    = 5.f;
 	Timer   m_timer (m_cycleTime);
 	
-	Object* m_mainLight    = 0;
+       Light*  m_mainLight    = 0;
 	float   m_mainYaw      = 0.f;
 	Object* m_fillLight    = 0;
 	float   m_fillYaw      = 0.f;
@@ -46,9 +46,10 @@ TimeOfDayTest::TimeOfDayTest () :
 	ShadowManager::setMeshShadowsVolumetric (true);
 	ShadowManager::setSkeletalShadowsVolumetric (true);
 
-	m_mainLight   = new Object ();
-	m_fillLight   = new Object ();
-	m_bounceLight = new Object ();
+       m_mainLight   = new Light (Light::T_parallel, VectorArgb::solidWhite);
+       m_light       = m_mainLight;
+       m_fillLight   = new Object ();
+       m_bounceLight = new Object ();
 }
 
 //-------------------------------------------------------------------
