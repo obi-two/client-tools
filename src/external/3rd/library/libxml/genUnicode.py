@@ -193,7 +193,7 @@ for block in keys:
 header.write("\nint\txmlUCSIsBlock\t(int code,\n\t\t\t const char *block);\n\n")
 output.write("/**\n * xmlUCSIsBlock:\n * @code: UCS code point\n")
 output.write(" * @block: UCS block name\n")
-output.write(" *\n * Check whether the caracter is part of the UCS Block\n")
+output.write(" *\n * Check whether the character is part of the UCS Block\n")
 output.write(" *\n * Returns 1 if true, 0 if false and -1 on unknown block\n */\n");
 output.write("int\nxmlUCSIsBlock(int code, const char *block) {\n")
 keys = BlockNames.keys()
@@ -233,7 +233,7 @@ for name in keys:
 header.write("\nint\txmlUCSIsCat\t(int code,\n\t\t\t const char *cat);\n")
 output.write("/**\n * xmlUCSIsCat:\n * @code: UCS code point\n")
 output.write(" * @cat: UCS Category name\n")
-output.write(" *\n * Check whether the caracter is part of the UCS Category\n")
+output.write(" *\n * Check whether the character is part of the UCS Category\n")
 output.write(" *\n * Returns 1 if true, 0 if false and -1 on unknown category\n */\n");
 output.write("int\nxmlUCSIsCat(int code, const char *cat) {\n")
 keys = Categories.keys()
