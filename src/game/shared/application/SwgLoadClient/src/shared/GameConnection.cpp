@@ -433,7 +433,7 @@ void GameConnection::update()
 			{
 				m_velocity = Vector(Random::randomReal(-1.0f, 1.0f), 0, Random::randomReal(-1.0f, 1.0f));
 				m_velocity.normalize();
-				m_velocity = m_velocity * (Random::randomReal(0.5f, 0.5f));
+                               m_velocity = m_velocity * (Random::randomReal(0.5f, 5.0f));
 				MessageQueueDataTransform data(0, ++m_sequenceNumber, m_transform, 0.0f, 0.0f, false);
 				ObjControllerMessage message(m_characterObjectId, CM_netUpdateTransform, 0.0f, GameControllerMessageFlags::SEND | GameControllerMessageFlags::DEST_SERVER, &data);
 				send(message, true);
