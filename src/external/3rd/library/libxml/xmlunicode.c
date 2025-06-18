@@ -1273,7 +1273,7 @@ xmlUCSIsYiSyllables(int code) {
  * @code: UCS code point
  * @block: UCS block name
  *
- * Check whether the caracter is part of the UCS Block
+ * Check whether the character is part of the UCS Block
  *
  * Returns 1 if true, 0 if false and -1 on unknown block
  */
@@ -4205,7 +4205,7 @@ xmlUCSIsCatZs(int code) {
  * @code: UCS code point
  * @cat: UCS Category name
  *
- * Check whether the caracter is part of the UCS Category
+ * Check whether the character is part of the UCS Category
  *
  * Returns 1 if true, 0 if false and -1 on unknown category
  */
