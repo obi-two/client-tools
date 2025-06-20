@@ -107,11 +107,13 @@ using namespace RoadmapManagerNamespace;
 
 void RoadmapManager::install()
 {
-	loadSkillClientDatatable();
-	loadTemplateDatatable();
-	loadRoadmapDatatable();
-	loadColorForSkillDatatable();
-	loadItemRewardsDatatable();
+    // Load only the data needed for skill templates and icons.  The
+    // roadmap specific tables are skipped so the system behaves like
+    // the classic pre-NGE skill tree.
+    loadSkillClientDatatable();
+    loadTemplateDatatable();
+
+    m_numberOfRoadmaps = 0; // no roadmaps available
 }
 
 //----------------------------------------------------------------------
@@ -708,20 +710,10 @@ void RoadmapManager::getRoadmapList(stdvector<std::string>::fwd &out)
 	
 bool RoadmapManager::playerIsOnRoadmap()
 {
-	PlayerObject const * player = Game::getPlayerObject();
-	if(!player)
-	{
-		return false;
-	}
-	std::string const & templateName = CuiSkillManager::getSkillTemplate();
-
-	
-	if(templateName.empty() || RoadmapManager::getNumberOfBranchesInRoadmap(RoadmapManager::getRoadmapNameForTemplateName(templateName)) == -1 ||
-		RoadmapManager::getPlayerBranch() == -1)
-	{
-		return false;
-	}
-	return true;
+    // Roadmaps are disabled; characters are never considered to be on
+    // a roadmap.  Returning false will bypass all roadmap UI and logic
+    // in favour of the classic skill tree system.
+    return false;
 }
 
 //----------------------------------------------------------------------
